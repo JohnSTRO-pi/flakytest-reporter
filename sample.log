@@ -1,0 +1,23 @@
+2026-03-30 14:21:58 INFO  [test-runner] Starting suite: checkout-service (4 tests)
+2026-03-30 14:21:59 INFO  [test-runner] Running: test_payment_gateway_connection
+2026-03-30 14:21:59 INFO  [payment-gateway-client] Initiating TLS handshake → payment-gateway:8443
+2026-03-30 14:22:00 WARN  [payment-gateway-client] Attempt 1/3 failed: connection refused
+2026-03-30 14:22:05 WARN  [payment-gateway-client] Attempt 2/3 failed: connection refused
+2026-03-30 14:22:10 WARN  [payment-gateway-client] Attempt 3/3 failed: connection refused
+2026-03-30 14:22:29 ERROR [payment-gateway-client] All retries exhausted after 30s
+2026-03-30 14:22:29 ERROR [test_payment_gateway_connection] FAIL — ConnectionError: Connection timed out after 30s connecting to payment-gateway:8443
+2026-03-30 14:22:29 INFO  [test-runner] Running: test_discount_calculation
+2026-03-30 14:22:29 INFO  [pricing-service] Fetching user loyalty tier for user_id=42
+2026-03-30 14:22:29 INFO  [pricing-service] User tier: GOLD (10% discount eligible)
+2026-03-30 14:22:29 INFO  [pricing-service] Applying promotions to cart [item_id=101, base_price=99.99]
+2026-03-30 14:22:29 DEBUG [discount-engine] No active promotion code found; skipping discount block
+2026-03-30 14:22:29 ERROR [test_discount_calculation] FAIL — AssertionError: Expected total 89.99, got 99.99. 10% loyalty discount not applied.
+2026-03-30 14:22:29 INFO  [test-runner] Running: test_inventory_db_write
+2026-03-30 14:22:29 INFO  [inventory-service] Connecting to postgres on port 5432
+2026-03-30 14:22:30 ERROR [inventory-service] OSError: [Errno 98] Address already in use: ('0.0.0.0', 5432)
+2026-03-30 14:22:30 ERROR [test_inventory_db_write] FAIL — OSError: [Errno 98] Address already in use: ('0.0.0.0', 5432)
+2026-03-30 14:22:30 INFO  [test-runner] Running: test_user_cart_persistence
+2026-03-30 14:22:30 INFO  [cart-service] Writing cart state to redis:6379
+2026-03-30 14:22:30 INFO  [cart-service] Verifying persistence via GET cart:user:42
+2026-03-30 14:22:30 INFO  [test_user_cart_persistence] PASS (318ms)
+2026-03-30 14:22:30 INFO  [test-runner] Suite complete — 1 passed, 3 failed

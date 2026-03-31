@@ -1,0 +1,33 @@
+{
+  "suite": "checkout-service",
+  "timestamp": "2026-03-30T14:22:00Z",
+  "tests": [
+    {
+      "name": "test_payment_gateway_connection",
+      "status": "FAILED",
+      "duration_ms": 30042,
+      "error": "ConnectionError: Connection timed out after 30s connecting to payment-gateway:8443",
+      "run_history": ["PASS", "PASS", "FAIL", "PASS", "FAIL"]
+    },
+    {
+      "name": "test_discount_calculation",
+      "status": "FAILED",
+      "duration_ms": 44,
+      "error": "AssertionError: Expected total 89.99, got 99.99. 10% loyalty discount not applied.",
+      "run_history": ["FAIL", "FAIL", "FAIL", "FAIL", "FAIL"]
+    },
+    {
+      "name": "test_inventory_db_write",
+      "status": "FAILED",
+      "duration_ms": 1105,
+      "error": "OSError: [Errno 98] Address already in use: ('0.0.0.0', 5432)",
+      "run_history": ["PASS", "FAIL", "PASS", "FAIL", "PASS"]
+    },
+    {
+      "name": "test_user_cart_persistence",
+      "status": "PASSED",
+      "duration_ms": 318,
+      "run_history": ["PASS", "PASS", "PASS", "PASS", "PASS"]
+    }
+  ]
+}
